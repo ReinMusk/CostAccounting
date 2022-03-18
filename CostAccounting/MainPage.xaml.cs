@@ -1,4 +1,5 @@
 ﻿using Microcharts;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Entry = Microcharts.Entry;
+using ChartEntry = Microcharts.ChartEntry;
 
 namespace CostAccounting
 {
     public partial class MainPage : ContentPage
     {
-        List<Entry> entries = new List<Entry>
+        List<ChartEntry> entries = new List<ChartEntry>
         {
-            new Entry()
+            new ChartEntry(200)
             {
-                Color = Color.White,
+                Color = SKColor.Parse("#FF1493"),
                 Label = "January",
                 ValueLabel = "200"
             }
