@@ -1,10 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-             xmlns:local="clr-namespace:Microcharts.Samples.Forms" 
-             x:Class="CostAccounting.MainPage">
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
+             x:Class="CostAccounting.MainPage"
+             NavigationPage.HasNavigationBar="True">
 
-    <microcharts:ChartView x:Name="Chart1" HeightRequest="200"/>
+    <NavigationPage.TitleView>
+        <Label Text="Категории" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="white">
+        <DatePicker HorizontalOptions="Center" TextColor="OrangeRed" Format="D" Margin="0, 15"></DatePicker>
+        <microcharts:ChartView x:Name="Chart1"  HeightRequest="250"/>
+        <FlexLayout Wrap="Wrap" Margin="0, 15, 0, 0" JustifyContent="SpaceEvenly">
+            
+            <StackLayout Margin="15">
+                <Image Source="magaz.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Продукты" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            <StackLayout Margin="15">
+                <Image Source="film.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Досуг" FontFamily="SourceCodePro-Medium" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            <StackLayout Margin="15">
+                <Image Source="food.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Кафе" FontFamily="SourceCodePro-Medium" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            <StackLayout Margin="15">
+                <Image Source="auto.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Транспорт" FontFamily="SourceCodePro-Medium" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            <StackLayout Margin="15">
+                <Image Source="health.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Здоровье" FontFamily="SourceCodePro-Medium"  TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            
+            <StackLayout Margin="15">
+                <Image Source="family.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Label Text="Семья и дом" FontFamily="SourceCodePro-Medium" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+        </FlexLayout>
+    </StackLayout>
+    
 
 </ContentPage>
