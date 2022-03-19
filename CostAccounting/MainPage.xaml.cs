@@ -7,47 +7,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using SQLite;
 using ChartEntry = Microcharts.ChartEntry;
 
 namespace CostAccounting
 {
     public partial class MainPage : ContentPage
     {
-        DatePicker datePicker; 
-
-        
+        List<ChartEntry> entries = new List<ChartEntry>
+        {
+            new ChartEntry(200)
+            {
+                Color = SKColor.Parse("#FF1493"),
+                Label = "January",
+                ValueLabel = "200"
+            }
+        };
         public MainPage()
         {
             InitializeComponent();
 
-            datePicker = new DatePicker
-            {
-                Format = "D",
-                MaximumDate = DateTime.Now.AddDays(5),
-                MinimumDate = DateTime.Now.AddDays(-5)
-            };
-
-            datePicker.DateSelected += datePicker_DateSelected;
-
-
-            List<ChartEntry> entries = new List<ChartEntry>
-            {
-                new ChartEntry(200)
-                {
-                    Color = SKColor.Parse("#FF1493")
-                },
-                new ChartEntry(300)
-                {
-                    Color = SKColor.Parse("#FF2222")
-                },
-            };
-
             Chart1.Chart = new DonutChart { Entries = entries };
+
+            
         }
 
-        private void datePicker_DateSelected(object sender, DateChangedEventArgs e)
+        public static void Save()
         {
-            
+            Category c1 = new Category
+            {
+                Name = "magaz"
+            };
+
+            Category c2 = new Category
+            {
+                Name = "film"
+            };
+
+            Category c3 = new Category
+            {
+                Name = "food"
+            };
+
+            Category c4 = new Category
+            {
+                Name = "auto"
+            };
+
+            Category c5 = new Category
+            {
+                Name = "health"
+            };
+
+            Category c6 = new Category
+            {
+                Name = "family"
+            };
+
+            App.Database.SaveCategory(c1);
+            App.Database.SaveCategory(c2);
+            App.Database.SaveCategory(c3);
+            App.Database.SaveCategory(c4);
+            App.Database.SaveCategory(c5);
+            App.Database.SaveCategory(c6);
         }
     }
 }

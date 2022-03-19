@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
-using Xamarin.Essentials;
 
 namespace CostAccounting
 {
-    [Table("Items")]
-    public class Item
+    [Table("Categories")]
+    public class Category
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [Indexed]
-        public int CategoryId { get; set; }
-        public float Sum { get; set; }
-        public DateTime Date { get; set; }
-
-
-        public Item()
+        public Category()
         {
 
         }
