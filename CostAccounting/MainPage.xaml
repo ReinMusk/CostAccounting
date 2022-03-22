@@ -19,7 +19,13 @@
             </StackLayout>
             
             <StackLayout Margin="15">
-                <Image Source="film.png" WidthRequest="80" HeightRequest="80"></Image>
+                <Image Source="film.png" WidthRequest="80" HeightRequest="80">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                        Tapped="OnImageNameTapped"
+                        NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
                 <Label Text="Досуг" FontFamily="SourceCodePro-Medium" TextColor="Black" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
             

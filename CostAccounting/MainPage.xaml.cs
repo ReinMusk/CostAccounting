@@ -23,15 +23,25 @@ namespace CostAccounting
                 ValueLabel = "200"
             }
         };
+
         public MainPage()
         {
             InitializeComponent();
 
             Chart1.Chart = new DonutChart { Entries = entries };
 
-            
         }
-
+        private async void OnImageNameTapped(object sender, EventArgs args)
+        {
+            try
+            {
+                string result = await DisplayPromptAsync("Досуг", "картинка" );
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static void Save()
         {
             Category c1 = new Category
