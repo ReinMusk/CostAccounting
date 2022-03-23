@@ -10,6 +10,7 @@ namespace CostAccounting
         {
             database = new SQLiteConnection(databasePath);
             database.CreateTable<Item>();
+            database.CreateTable<Category>();
         }
         public IEnumerable<Item> GetItems()
         {
