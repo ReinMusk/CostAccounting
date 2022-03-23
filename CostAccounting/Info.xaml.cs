@@ -14,11 +14,17 @@ namespace CostAccounting
     {
         public Info()
         {
-
+            this.BindingContext = this;
 
             InitializeComponent();
 
             this.BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            List.ItemsSource = App.Database.GetItems();
+            base.OnAppearing();
         }
     }
 }
