@@ -11,7 +11,6 @@ namespace CostAccounting
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
-        public string Name { get; set; }
 
         [Indexed]
         public int CategoryId { get; set; }
