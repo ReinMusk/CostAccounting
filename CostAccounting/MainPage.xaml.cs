@@ -19,8 +19,7 @@ namespace CostAccounting
             new ChartEntry(200)
             {
                 Color = SKColor.Parse("#FF1493"),
-                Label = "January",
-                ValueLabel = "200"
+                
             }
         };
 
@@ -31,16 +30,9 @@ namespace CostAccounting
             Chart1.Chart = new DonutChart { Entries = entries };
 
         }
-        private async void OnImageNameTapped(object sender, EventArgs args)
+        private async void OnDosugTapped(object sender, EventArgs args)
         {
-            try
-            {
-                string result = await DisplayPromptAsync("Досуг", "картинка" );
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            await Navigation.PushAsync(new AddNotePage(App.Database.GetCategory(2)));
         }
         public static void Save()
         {
@@ -73,6 +65,8 @@ namespace CostAccounting
             {
                 Name = "family"
             };
+
+            App.Database.DeleteCategory(c1);
 
             App.Database.SaveCategory(c1);
             App.Database.SaveCategory(c2);
