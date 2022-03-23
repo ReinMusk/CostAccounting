@@ -35,6 +35,18 @@ namespace CostAccounting
         {
             return database.Delete<Item>(id);
         }
+
+        public int DeleteCategory(int id)
+        {
+            return database.Delete<Category>(id);
+        }
+
+        public int DeleteCategory(Category cat)
+        {
+            return database.Delete<Category>(cat.Id);
+        }
+
+
         public int SaveItem(Item item)
         {
             if (item.Id != 0)
