@@ -5,17 +5,13 @@ using SQLite;
 
 namespace CostAccounting
 {
-    [Table("Categories")]
-    public class Category
+    [Table("ViewItems")]
+    public class ViewItem
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public float Sum { get; set; }
-
-        public Category()
-        {
-            
-        }
+        public string Sum { get; set; }
+        public string Category { get; set; }
+        public DateTime Date { get; set; }
     }
 }

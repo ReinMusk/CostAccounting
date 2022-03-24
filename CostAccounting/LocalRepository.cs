@@ -11,7 +11,36 @@ namespace CostAccounting
             database = new SQLiteConnection(databasePath);
             database.CreateTable<Item>();
             database.CreateTable<Category>();
+            database.CreateTable<ViewItem>();
+            
+
+            //database.DropTable<Item>();
+            //database.DropTable<Category>();
+            //database.DropTable<ViewItem>();
+
         }
+        public IEnumerable<ViewItem> GetViewItems()
+        {
+            return database.Table<ViewItem>().ToList();
+        }
+        public ViewItem GetViewItem(int id)
+        {
+            return database.Get<ViewItem>(id);
+        }
+
+        public int SaveViewItem(ViewItem item)
+        {
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
+        }
+
         public IEnumerable<Item> GetItems()
         {
             return database.Table<Item>().ToList();

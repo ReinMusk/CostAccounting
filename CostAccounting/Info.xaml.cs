@@ -23,7 +23,7 @@ namespace CostAccounting
 
         protected override void OnAppearing()
         {
-            List.ItemsSource = App.Database.GetItems();
+            List.ItemsSource = App.Database.GetCategories();
             base.OnAppearing();
         }
     }

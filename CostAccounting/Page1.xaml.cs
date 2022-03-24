@@ -10,13 +10,21 @@ using Xamarin.Forms.Xaml;
 namespace CostAccounting
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddNotePage : ContentPage
+    public partial class Page1 : ContentPage
     {
-        public AddNotePage(Category category)
+        public Page1()
         {
+            this.BindingContext = this;
+
             InitializeComponent();
 
-            title.Text = category.Name;
+            this.BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            List1.ItemsSource = App.Database.GetViewItems();
+            base.OnAppearing();
         }
     }
 }
