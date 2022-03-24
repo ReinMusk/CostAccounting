@@ -62,7 +62,14 @@ namespace CostAccounting
         {
             InitializeComponent();
 
-            //Save();
+            try
+            {
+                var pupa = App.Database.GetCategories();
+            }
+            catch
+            {
+                Save();
+            }
 
             Chart1.Chart = new DonutChart { Entries = entries };
         }
