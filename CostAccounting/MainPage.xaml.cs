@@ -23,53 +23,52 @@ namespace CostAccounting
         //    },
         //};
 
-
-        List<ChartEntry> entries = new List<ChartEntry>
-        {
-            new ChartEntry(App.Database.GetCategory(1).Sum)
-            {
-                Color = SKColor.Parse("#1B93BE"),
-        
-            },
-            new ChartEntry(App.Database.GetCategory(2).Sum)
-            {
-                Color = SKColor.Parse("#32BEA6"),
-        
-            },
-            new ChartEntry(App.Database.GetCategory(3).Sum)
-            {
-                Color = SKColor.Parse("#D01F4D"),
-        
-            },
-            new ChartEntry(App.Database.GetCategory(4).Sum)
-            {
-                Color = SKColor.Parse("#E8B11B"),
-        
-            },
-            new ChartEntry(App.Database.GetCategory(5).Sum)
-            {
-                Color = SKColor.Parse("#9C1738"),
-        
-            },
-            new ChartEntry(App.Database.GetCategory(6).Sum)
-            {
-                Color = SKColor.Parse("#F58667"),
-        
-            },
-        };
-
         public MainPage()
         {
             InitializeComponent();
 
             try
             {
-                var pupa = App.Database.GetCategories();
+                var pupa = App.Database.GetCategory(1);
             }
             catch
             {
                 Save();
             }
+
+            List<ChartEntry> entries = new List<ChartEntry>
+        {
+            new ChartEntry(App.Database.GetCategory(1).Sum)
+            {
+                Color = SKColor.Parse("#1B93BE"),
+
+            },
+            new ChartEntry(App.Database.GetCategory(2).Sum)
+            {
+                Color = SKColor.Parse("#32BEA6"),
+
+            },
+            new ChartEntry(App.Database.GetCategory(3).Sum)
+            {
+                Color = SKColor.Parse("#D01F4D"),
+
+            },
+            new ChartEntry(App.Database.GetCategory(4).Sum)
+            {
+                Color = SKColor.Parse("#E8B11B"),
+
+            },
+            new ChartEntry(App.Database.GetCategory(5).Sum)
+            {
+                Color = SKColor.Parse("#9C1738"),
+
+            },
+            new ChartEntry(App.Database.GetCategory(6).Sum)
+            {
+                Color = SKColor.Parse("#F58667"),
+
+            },
+        };
 
             Chart1.Chart = new DonutChart { Entries = entries };
         }

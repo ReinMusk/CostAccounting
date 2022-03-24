@@ -8,8 +8,8 @@
     </NavigationPage.TitleView>
 
     <StackLayout>
-        
-        
+
+
         <ListView x:Name="List" ItemsSource="{Binding Category}" BackgroundColor="White">
             <ListView.ItemTemplate>
                 <DataTemplate>
